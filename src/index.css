@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cinema-950 text-cinema-100 font-body;
+    margin: 0;
+    overscroll-behavior-y: none;
+  }
+
+  input,
+  textarea,
+  select {
+    font-size: 16px;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .break-words {
+    word-break: break-word;
+    overflow-wrap: break-word;
+  }
+
+  .glass {
+    background: rgba(20, 24, 40, 0.55);
+    backdrop-filter: blur(12px) saturate(130%);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.28);
+    contain: layout style;
+  }
+
+  .glass-nav {
+    background: rgba(8, 10, 20, 0.82);
+    backdrop-filter: blur(12px) saturate(130%);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.04);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.32);
+    contain: layout style;
+  }
+
+  .glass-panel {
+    background: rgba(16, 20, 36, 0.65);
+    backdrop-filter: blur(12px) saturate(130%);
+    -webkit-backdrop-filter: blur(12px) saturate(130%);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.32);
+    contain: layout style;
+  }
+
+  .gold-gradient {
+    background: linear-gradient(135deg, #ffb81c 0%, #d97a06 100%);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 20px rgba(255, 184, 28, 0.25);
+  }
+
+  .cinema-radial {
+    background: radial-gradient(ellipse at top, rgba(42, 48, 69, 0.4) 0%, transparent 60%),
+                radial-gradient(ellipse at bottom, rgba(18, 21, 38, 1) 0%, rgba(10, 12, 24, 1) 100%);
+  }
+
+  .amber-corner {
+    position: relative;
+  }
+  .amber-corner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 64px;
+    height: 64px;
+    background: radial-gradient(circle at top right, rgba(255, 184, 28, 0.22) 0%, transparent 70%);
+    pointer-events: none;
+    border-top-right-radius: inherit;
+  }
+
+  .spring-tap {
+    transition: transform 0.12s cubic-bezier(0.34, 1.56, 0.64, 1);
+    will-change: transform;
+  }
+  .spring-tap:active {
+    transform: scale(1.06);
+  }
+
+  .input-focus-glow {
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+  }
+  .input-focus-glow:focus,
+  .input-focus-glow:focus-within {
+    border-color: rgba(255, 184, 28, 0.5);
+    box-shadow: 0 0 0 3px rgba(255, 184, 28, 0.15), 0 0 18px rgba(255, 184, 28, 0.18);
+  }
+
+  .expand-smooth {
+    animation: expandSmooth 0.28s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@keyframes expandSmooth {
+  0% {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes prizeResultPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
